@@ -14,19 +14,24 @@ class Ostoskori:
 
         maara = 0
         for value in self.sisalto.values():
-            maara += value
+            maara += value[1]
         return maara
         
     def hinta(self):
-        return 0
+        hinta = 0
+        for value in self.sisalto.values():
+            hinta += value[0].hinta() * value[1]
+        return hinta
+    
         # kertoo korissa olevien ostosten yhteenlasketun hinnan
 
     def lisaa_tuote(self, lisattava: Tuote):
-        if lisattava not in self.sisalto.keys():
-            self.sisalto[lisattava] = 1
+        if lisattava.nimi not in self.sisalto.keys():
+            self.sisalto[lisattava.nimi] = [lisattava, 1]
         else:
-            self.sisalto[lisattava] += 1
-
+            self.sisalto[lisattava.nimi][1] += 1
+            
+        print (self.sisalto.keys())
     def poista_tuote(self, poistettava: Tuote):
         # poistaa tuotteen
         pass
