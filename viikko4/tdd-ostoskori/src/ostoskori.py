@@ -4,7 +4,6 @@ from ostos import Ostos
 class Ostoskori:
     def __init__(self):
         # ostoskori tallettaa Ostos-oliota, yhden per korissa oleva Tuote
-
         self.sisalto = {}
 
     def tavaroita_korissa(self):
@@ -19,9 +18,7 @@ class Ostoskori:
         
     def hinta(self):
         hinta = 0
-        print (self.sisalto.values())
         for ostos in self.sisalto.values():
-            print ("pok")
             hinta += ostos.hinta()
         return hinta
     
