@@ -14,24 +14,26 @@ class Ostoskori:
 
         maara = 0
         for value in self.sisalto.values():
-            maara += value[1]
+            maara += value.lukumaara()
         return maara
         
     def hinta(self):
         hinta = 0
-        for value in self.sisalto.values():
-            hinta += value[0].hinta() * value[1]
+        print (self.sisalto.values())
+        for ostos in self.sisalto.values():
+            print ("pok")
+            hinta += ostos.hinta()
         return hinta
     
         # kertoo korissa olevien ostosten yhteenlasketun hinnan
 
     def lisaa_tuote(self, lisattava: Tuote):
+        
         if lisattava.nimi not in self.sisalto.keys():
-            self.sisalto[lisattava.nimi] = [lisattava, 1]
+            self.sisalto[lisattava.nimi] = Ostos(lisattava)
         else:
-            self.sisalto[lisattava.nimi][1] += 1
+            self.sisalto[lisattava.nimi].muuta_lukumaaraa(1)
             
-        print (self.sisalto.keys())
     def poista_tuote(self, poistettava: Tuote):
         # poistaa tuotteen
         pass
@@ -41,6 +43,7 @@ class Ostoskori:
         # tyhjentää ostoskorin
 
     def ostokset(self):
-        pass
+        
+        return list(self.sisalto.values())
         # palauttaa listan jossa on korissa olevat ostos-oliot
         # kukin ostos-olio siis kertoo mistä tuotteesta on kyse JA kuinka monta kappaletta kyseistä tuotetta korissa on
