@@ -59,12 +59,12 @@ class IntJoukko:
         return self.alkioiden_lkm
 
     def to_int_list(self):
-        taulu = [0] * self.alkioiden_lkm
+        uusi_lukujono = []
 
-        for i in range(0, len(taulu)):
-            taulu[i] = self.lukujono[i]
+        for i in range(0, self.alkioiden_lkm):
+            uusi_lukujono.append(self.lukujono[i])
 
-        return taulu
+        return uusi_lukujono
 
     @staticmethod
     def yhdiste(a, b):
