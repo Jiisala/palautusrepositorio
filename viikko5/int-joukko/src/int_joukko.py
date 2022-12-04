@@ -1,4 +1,4 @@
-#Refaktoroida olisi voinut vielä lisää, mutta pyrin säilyttämään alkuperäisen tehtävän annon vaatimukset.
+#Refaktoroida olisi voinut vielä lisää, mutta pyrin säilyttämään alkuperäisen tehtävän vaatimukset.
 #Paljon siistimpi kuin lähtötilanne kuitenkin. 
 
 KAPASITEETTI = 5
@@ -68,44 +68,44 @@ class IntJoukko:
 
     @staticmethod
     def yhdiste(a, b):
-        x = IntJoukko()
+        yhdiste_lukujono = IntJoukko()
         a_taulu = a.to_int_list()
         b_taulu = b.to_int_list()
 
         for i in range(0, len(a_taulu)):
-            x.lisaa(a_taulu[i])
+            yhdiste_lukujono.lisaa(a_taulu[i])
 
         for i in range(0, len(b_taulu)):
-            x.lisaa(b_taulu[i])
+            yhdiste_lukujono.lisaa(b_taulu[i])
 
-        return x
+        return yhdiste_lukujono
 
     @staticmethod
     def leikkaus(a, b):
-        y = IntJoukko()
+        leikkaus_lukujono = IntJoukko()
         a_taulu = a.to_int_list()
         b_taulu = b.to_int_list()
 
         for i in range(0, len(a_taulu)):
             for j in range(0, len(b_taulu)):
                 if a_taulu[i] == b_taulu[j]:
-                    y.lisaa(b_taulu[j])
+                    leikkaus_lukujono.lisaa(b_taulu[j])
 
-        return y
+        return leikkaus_lukujono
 
     @staticmethod
     def erotus(a, b):
-        int_joukko = IntJoukko()
+        erotus_lukujono = IntJoukko()
         a_taulu = a.to_int_list()
         b_taulu = b.to_int_list()
 
         for i in range(0, len(a_taulu)):
-            int_joukko.lisaa(a_taulu[i])
+            erotus_lukujono.lisaa(a_taulu[i])
 
         for i in range(0, len(b_taulu)):
-            int_joukko.poista(b_taulu[i])
+            erotus_lukujono.poista(b_taulu[i])
 
-        return int_joukko
+        return erotus_lukujono
 
     def __str__(self):
-        return f"\u007b{', '.join(map(str, self.lukujono))}\u007d"
+                return f"\u007b{', '.join(map(str, self.lukujono[:self.alkioiden_lkm]))}\u007d"
